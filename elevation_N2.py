@@ -3,7 +3,6 @@ import numpy as np
 from read_hyd_data import *
 import pandas as pd
 import seawater as sw 
-import matplotlib.pyplot as plt
 from scipy import stats
 
 class SeawaterDensityCalculator:

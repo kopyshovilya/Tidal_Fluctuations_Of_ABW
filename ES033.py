@@ -1,26 +1,13 @@
 import numpy as np
 import pandas as pd
-import os
-from PIL import Image
 import matplotlib.pyplot as plt
-import matplotlib
-from matplotlib import cm
-from shapely.geometry import LineString
 import scipy as sp
-import scipy.interpolate
-from matplotlib.colors import ListedColormap, LinearSegmentedColormap
-from scipy.interpolate import interp1d
-import sys
-from scipy import interpolate
-from matplotlib.collections import PatchCollection
-from matplotlib.patches import Rectangle
-from mpl_toolkits.axes_grid1 import make_axes_locatable
 import seawater as sw
 import scipy as sp
-from scipy.interpolate import griddata, LinearNDInterpolator, NearestNDInterpolator
+from scipy.interpolate import LinearNDInterpolator
 
 
-dir = "F:\\Science\\Antarctic\\Profile_depth_4_moorages.txt"
+dir = "data/Profile_depth_4_moorages.txt"
 dfB = pd.read_table(dir, sep=',')
 zer = [float(dfB["Lat"][0]), float(dfB["Lon"][0])]
 bot = np.zeros(len(dfB["Lon"]))
@@ -31,7 +18,7 @@ for i in range(len(dfB["Lon"])):
 
 
 
-dirData = "F:\\Science\\Antarctic\\Data\\ES033_ctd.tab"
+dirData = "data/ES033_ctd.tab"
 df = pd.read_table(dirData, sep='\t', skiprows = 187)
 nameSt = ["ES033_ctd_094", "ES033_ctd_095", "ES033_ctd_096",
           "ES033_ctd_097", "ES033_ctd_098", "ES033_ctd_099",
@@ -150,6 +137,6 @@ plt.xlim([0, 55])
 plt.ylim([2000, 0])
 plt.tight_layout()
          
-# plt.savefig("F:\\Science\\Antarctic\\moorings_structrure\\Moorings_location_ES033_N2.png", dpi = 800, transparent=1)
+# plt.savefig("Moorings_location_ES033_N2.png", dpi = 800, transparent=1)
 
 plt.show()
